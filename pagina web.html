@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spa Relajante</title>
+  <link rel="stylesheet" href="estilos.css">
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      padding: 10px;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+    }
+    .comentarios {
+      background-color: #333;
+      padding: 20px;
+      border: 1px solid #555;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+    .comentarios textarea {
+      width: 100%;
+      height: 100px;
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+      resize: none;
+    }
+    .comentarios button {
+      background-color: #555;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    #qrcode {
+      width: 200px;
+      height: 200px;
+      margin: 20px auto;
+    }
+    .tabla-precios {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    .tabla-precios th, .tabla-precios td {
+      border: 1px solid #555;
+      padding: 10px;
+      text-align: left;
+    }
+    .tabla-precios th {
+      background-color: #333;
+    }
+
+    /* Carrusel */
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+      margin: 20px auto;
+      overflow: hidden;
+      border-radius: 15px;
+    }
+
+    .carousel {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel img {
+      width: 100%;
+      flex-shrink: 0;
+    }
+
+    .carousel-buttons {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      padding: 0 10px;
+    }
+
+    .carousel-buttons button {
+      background-color: rgba(0, 0, 0, 0.5);
+      border: none;
+      color: #fff;
+      font-size: 24px;
+      cursor: pointer;
+      border-radius: 50%;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#promociones">Promociones</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section id="inicio">
+      <h1>Bienvenido al Spa Relajante</h1>
+      <p>Descubre un lugar donde relajarte y rejuvenecer</p>
+      <div class="carousel-container">
+        <div class="carousel" id="carousel">
+          <img src="https://img.freepik.com/foto-gratis/mujer-africana-atractiva-que-disfruta-masaje-facial-salon-balneario_176420-13955.jpg?t=st=1744247239~exp=1744250839~hmac=48868de10d3244a0df9c335b95216d24ffd19e65f885764bce2d7695b16dd709&w=1380" alt="Imagen 1">
+          <img src="https://img.freepik.com/fotos-premium/sala-spa-calidamente-iluminada-toallas-suaves-enrolladas-colocadas-cuidadosamente-mesa-masaje_1189127-7458.jpg?w=1380" alt="Imagen 2">
+          <img src="https://img.freepik.com/fotos-premium/mujer-tumbada-sofa-boca-arriba-ojos-cerrados-disfruta_151013-13426.jpg?w=1380" alt="Imagen 3">
+        </div>
+        <div class="carousel-buttons">
+          <button onclick="moverCarrusel(-1)">‹</button>
+          <button onclick="moverCarrusel(1)">›</button>
+        </div>
+      </div>
+      <button>Reserva ahora</button>
+    </section>
+    <section id="servicios">
+      <h2>Servicios</h2>
+      <ul>
+        <li>Masajes relajantes</li>
+        <li>Tratamientos faciales</li>
+        <li>Reflexología</li>
+        <li>Yoga y meditación</li>
+      </ul>
+    </section>
+    <section id="promociones">
+      <h2>Promociones</h2>
+      <ul>
+        <li>Descuento del 10% en todos los servicios</li>
+        <li>Pack de relajación: masaje y tratamiento facial</li>
+        <li>Clases de yoga y meditación gratuitas</li>
+      </ul>
+    </section>
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <p>Dirección: Calle 123, Colonia ABC</p>
+      <p>Teléfono: 555-123-4567</p>
+      <p>Correo electrónico: <a href="mailto:info@sparelajante.com">info@sparelajante.com</a></p>
+    </section>
+    <section id="precios">
+      <h2>Precios</h2>
+      <table class="tabla-precios">
+        <tr>
+          <th>Servicio</th>
+          <th>Precio</th>
+        </tr>
+        <tr>
+          <td>Masaje relajante</td>
+          <td>$1500</td>
+        </tr>
+        <tr>
+          <td>Tratamiento facial</td>
+          <td>$700</td>
+        </tr>
+        <tr>
+          <td>Reflexología</td>
+          <td>$200</td>
+        </tr>
+        <tr>
+          <td>Yoga y meditación</td>
+          <td>$400</td>
+        </tr>
+      </table>
+    </section>
+    <section id="comentarios">
+      <h2>Comentarios</h2>
+      <div class="comentarios">
+        <textarea placeholder="Escribe tu comentario aquí..."></textarea>
+        <button>Enviar</button>
+      </div>
+    </section>
+    <section id="qrcode-section">
+      <h2>Escanea para más información</h2>
+      <div id="qrcode"></div>
+    </section>
+  </main>
+
+  <script>
+    let indice = 0;
+    const carrusel = document.getElementById('carousel');
+    const total = carrusel.children.length;
+
+    function moverCarrusel(direccion) {
+      indice = (indice + direccion + total) % total;
+      carrusel.style.transform = translateX(-${indice * 100}%);
+    }
+
+    setInterval(() => moverCarrusel(1), 5000); // Cambio automático cada 5 segundos
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <canvas id="qr"></canvas>
+<script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
+  <script>
+    const qr = new QRious({
+      element: document.getElementById('qr'),
+      size: 200
+    });
+    function generarQR() {
+      const texto = document.getElementById('texto').value;
+      qr.value = texto;
+    }
+  </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Video de YouTube</title>
+</head>
+<body>
+    <h1></h1>
+    <iframe width="560" height="315" 
+        src="https://www.youtube.com/embed/G-Q7t3yw6N0" 
+        title="YouTube video player" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allow="autoplay" 
+        allowfullscreen>
+    </iframe>
+</body>
+</html>
